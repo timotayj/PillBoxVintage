@@ -7,7 +7,7 @@ var mongoose = require('mongoose');
 
 var app = express();
 /*var routes = require('./routes/index');*/
-
+/*tetadgb*/
 
 
 app.set('view engine', 'jade');
