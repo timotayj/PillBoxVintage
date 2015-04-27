@@ -2,6 +2,7 @@
 var path = require('path');
 var express = require('express');
 var stormpath = require('express-stormpath');
+var mongoose = require('mongoose');
 
 
 var app = express();
@@ -12,6 +13,11 @@ var app = express();
 app.set('view engine', 'jade');
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+
+
+
 
 
 app.use(stormpath.init(app, {
@@ -37,6 +43,14 @@ app.get('/dashboard', function(req, res){
 });
 
 app.get('/secret', stormpath.loginRequired, function(req, res) {
-    res.send("If you're seeing this page, you must be logged in!");
+   /* res.send("If you're seeing this page, you must be logged in!");*/
+    res.render('secret')
+});
+
+
+app.get('/dates', stormpath.loginRequired, function(req, res) {
+    /* res.send("If you're seeing this page, you must be logged in!");*/
+    res.render('dates')
 });
 app.listen(3001);
+
